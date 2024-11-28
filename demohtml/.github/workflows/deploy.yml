@@ -1,0 +1,42 @@
+name: Deploy HTML Project
+
+on:
+  push:
+    branches:
+      - main  # Run workflow on push to main branch
+  pull_request:
+    branches:
+      - main  # Run on pull request to main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Step 1: Checkout repository
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # Step 2: Set up Node.js environment (if using npm packages for validation)
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    # Step 3: Install dependencies (if required)
+    - name: Install dependencies
+      run: npm install
+
+    # Step 4: Lint HTML and CSS (optional)
+    - name: Lint HTML
+      run: npx htmlhint "**/*.html"
+
+    - name: Lint CSS
+      run: npx stylelint "**/*.css"
+
+    # Step 5: Deploy to GitHub Pages
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: .  # Root of your HTML files
