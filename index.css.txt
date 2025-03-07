@@ -1,0 +1,97 @@
+/* Reset some default styles */
+body, h1, p, ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  line-height: 1.6;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Header styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #333;
+  color: #fff;
+}
+
+.header .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar ul {
+  display: flex;
+  gap: 1rem;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: 2px solid transparent;
+}
+
+.navbar a:hover {
+  border-bottom: 2px solid #f56e09;
+}
+
+/* Main section */
+.main {
+  padding: 2rem;
+  text-align: center;
+  background: linear-gradient(to bottom, #f5f5f5, #eaeaea);
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  color: #333;
+}
+
+.hero p {
+  margin: 1rem 0;
+  color: #555;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #f56e09;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #d94a06;
+}
+
+/* Footer styles */
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #333;
+  color: #fff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar ul {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+}
